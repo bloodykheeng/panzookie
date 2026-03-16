@@ -8,6 +8,7 @@ import WhyUs from "@/components/WhyUs";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import MobileCTA from "@/components/MobileCTA";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Contact />
       <Footer />
       <MobileCTA />
+      <ScrollToTop />
     </>
   );
 }
