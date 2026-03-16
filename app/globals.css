@@ -1,26 +1,162 @@
 @import "tailwindcss";
 
+/* ─── Panzookie Brand Tokens ─────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand accent */
+  --pz-amber: #ffb400;
+  --pz-amber-hover: #ffc933;
+  --pz-amber-dark: #e6a200;
+
+  /* Home palette */
+  --pz-sky: #ebf5ff;
+  --pz-sky-mid: #bddcf5;
+  --pz-blue: #2a7fbf;
+
+  /* Enterprise palette */
+  --pz-navy: #001f54;
+  --pz-navy-mid: #003285;
+  --pz-slate: #4a5568;
+
+  /* Neutral */
+  --pz-white: #ffffff;
+  --pz-off-white: #f8fafc;
+  --pz-gray-100: #f1f5f9;
+  --pz-gray-200: #e2e8f0;
+  --pz-gray-400: #94a3b8;
+  --pz-gray-600: #475569;
+  --pz-gray-800: #1e293b;
+  --pz-black: #0a0e1a;
+
+  /* Semantic (light mode defaults) */
+  --bg-base: var(--pz-off-white);
+  --bg-surface: var(--pz-white);
+  --bg-subtle: var(--pz-gray-100);
+  --text-primary: var(--pz-black);
+  --text-secondary: var(--pz-gray-600);
+  --text-muted: var(--pz-gray-400);
+  --border-color: var(--pz-gray-200);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  --card-shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.12);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme="dark"] {
+  --bg-base: #080c18;
+  --bg-surface: #0f1629;
+  --bg-subtle: #162040;
+  --text-primary: #f0f6ff;
+  --text-secondary: #94a3b8;
+  --text-muted: #4a5568;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  --card-shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Base ───────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+    overflow-x: hidden;
+  }
+
+  /* ─── Typography helpers ─────────────────────────────────────── */
+  .font-display {
+    font-family: "Syne", sans-serif;
+  }
+
+  /* ─── Scrollbar ──────────────────────────────────────────────── */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--pz-amber);
+    border-radius: 3px;
+  }
+
+  /* ─── Selection ──────────────────────────────────────────────── */
+  ::selection {
+    background: var(--pz-amber);
+    color: #000;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── Animations ─────────────────────────────────────────────── */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  .animate-ticker {
+    animation: ticker 30s linear infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+  }
 }
