@@ -268,10 +268,18 @@ export default function Services() {
 
             {isCalendlyOpen && (
                 <PopupModal
-                    url="https://calendly.com/panzookienetworks/home-network-service"
-                    open={true}
+                    // url="https://calendly.com/panzookienetworks/home-network-service"
+                    url="https://calendly.com/therealnetworkengineer/30min"
+                    open={isCalendlyOpen}
                     onModalClose={() => setIsCalendlyOpen(false)}
                     rootElement={document.body}
+                    pageSettings={{
+                        backgroundColor: isDark ? "0d1117" : "ffffff",
+                        hideEventTypeDetails: false,
+                        hideLandingPageDetails: false,
+                        primaryColor: "ffb400",
+                        textColor: isDark ? "f8fafc" : "0f172a",
+                    }}
                 />
             )}
         </section>

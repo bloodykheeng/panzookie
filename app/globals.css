@@ -160,3 +160,26 @@
     animation: gradient-shift 6s ease infinite;
   }
 }
+
+/* ================ calendly styles ==================  */
+
+/* Light mode (default) */
+.calendly-popup {
+  min-height: 700px !important;
+  min-width: 60vw !important;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Dark mode */
+.dark .calendly-popup {
+  background-color: #0f172a; /* Tailwind slate-900 */
+  color: #ffffff;
+}
+
+.dark .calendly-popup-content {
+  background-color: #0f172a !important; /* Tailwind slate-900 */
+  color: #ffffff;
+}
