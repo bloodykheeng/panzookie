@@ -21,6 +21,7 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [active, setActive] = useState("Home");
 
+
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 40);
         window.addEventListener("scroll", onScroll);

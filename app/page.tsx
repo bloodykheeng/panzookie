@@ -5,7 +5,7 @@ import Services from "@/components/Services";
 import Support from "@/components/Support";
 import Enterprise from "@/components/Enterprise";
 import WhyUs from "@/components/WhyUs";
-import Contact from "@/components/Contact";
+import Contact from "@/components/contact/Contact";
 import Footer from "@/components/Footer";
 import MobileCTA from "@/components/MobileCTA";
 import ScrollToTop from "@/components/ScrollToTop";

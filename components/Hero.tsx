@@ -11,6 +11,16 @@ export default function Hero() {
     const isDark = theme === "dark";
     const [calendlyUrl, setCalendlyUrl] = useState<string | null>(null);
 
+    function goToContactTab(tab: "contact" | "home" | "enterprise") {
+        // Dispatch a custom event that the Contact section listens to
+        window.dispatchEvent(new CustomEvent("open-contact-tab", { detail: { tab } }));
+        // Then scroll to the section
+        const section = document.getElementById("contact");
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
     return (
         <section
             id="hero"
@@ -146,9 +156,10 @@ export default function Hero() {
                         transition={{ delay: 0.35 }}
                         className="flex flex-col sm:flex-row gap-3 mb-12"
                     >
+                        {/* ── Home Network CTA → scrolls to contact + opens home tab ── */}
                         <button
                             type="button"
-                            onClick={() => setCalendlyUrl("https://calendly.com/panzookienetworks/home-network-service")}
+                            onClick={() => goToContactTab("home")}
                             className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-[13px] font-bold tracking-wider uppercase transition-all duration-200 hover:scale-105 active:scale-95"
                             style={{
                                 background: "var(--pz-amber)",
@@ -161,11 +172,14 @@ export default function Hero() {
                             <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                             </svg>
-                            Book Home Network Service
+                            Book Your Home Network Service Now
                         </button>
+
                         <button
                             type="button"
-                            onClick={() => setCalendlyUrl("https://calendly.com/panzookienetworks/enterprise-consultation")}
+                            // onClick={() => setCalendlyUrl("https://calendly.com/panzookienetworks/enterprise-consultation")}
+                            // onClick={() => setCalendlyUrl("https://calendly.com/therealnetworkengineer/30min")}
+                            onClick={() => goToContactTab("enterprise")}
                             className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-[13px] font-bold tracking-wider uppercase border-2 transition-all duration-200 hover:scale-105 active:scale-95"
                             style={{
                                 borderColor: isDark ? "rgba(255,255,255,0.2)" : "var(--pz-navy)",
@@ -178,7 +192,7 @@ export default function Hero() {
                             <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                             </svg>
-                            Schedule Enterprise Consultation
+                            Schedule Your Enterprise Consultation
                         </button>
                     </motion.div>
 

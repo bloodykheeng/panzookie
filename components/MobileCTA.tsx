@@ -17,10 +17,22 @@ export default function MobileCTA() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
+    function goToContactTab(tab: "contact" | "home" | "enterprise") {
+        // Dispatch a custom event that the Contact section listens to
+        window.dispatchEvent(new CustomEvent("open-contact-tab", { detail: { tab } }));
+        // Then scroll to the section
+        const section = document.getElementById("contact");
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+
     return (
         <AnimatePresence>
             {visible && (
                 <motion.div
+                    key="mobile-cta"
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 100, opacity: 0 }}
@@ -41,7 +53,8 @@ export default function MobileCTA() {
                     >
                         <button
                             type="button"
-                            onClick={() => setCalendlyUrl("https://calendly.com/panzookienetworks/home-network-service")}
+                            // onClick={() => setCalendlyUrl("https://calendly.com/panzookienetworks/home-network-service")}
+                            onClick={() => goToContactTab("home")}
                             className="flex-1 flex items-center justify-center gap-1.5 py-3.5 rounded-xl text-[11px] font-bold tracking-wider uppercase transition-all active:scale-95"
                             style={{
                                 background: "var(--pz-amber)",
@@ -57,7 +70,9 @@ export default function MobileCTA() {
                         </button>
                         <button
                             type="button"
-                            onClick={() => setCalendlyUrl("https://calendly.com/panzookienetworks/enterprise-consultation")}
+                            // onClick={() => setCalendlyUrl("https://calendly.com/panzookienetworks/enterprise-consultation")}
+                            // onClick={() => setCalendlyUrl("https://calendly.com/therealnetworkengineer/30min")}
+                            onClick={() => goToContactTab("enterprise")}
                             className="flex-1 flex items-center justify-center gap-1.5 py-3.5 rounded-xl text-[11px] font-bold tracking-wider uppercase border-2 transition-all active:scale-95"
                             style={{
                                 borderColor: isDark ? "rgba(255,255,255,0.15)" : "var(--pz-navy)",
@@ -76,10 +91,18 @@ export default function MobileCTA() {
             )}
             {calendlyUrl && (
                 <PopupModal
+                    key="calendly-modal"
                     url={calendlyUrl}
                     open={true}
                     onModalClose={() => setCalendlyUrl(null)}
                     rootElement={document.body}
+                // pageSettings={{
+                //     backgroundColor: "0f1629", // dark navy background
+                //     primaryColor: "F5C518",    // your gold accent
+                //     textColor: "ffffff",
+                //     hideEventTypeDetails: false,
+                //     hideLandingPageDetails: false,
+                // }}
                 />
             )}
         </AnimatePresence>
