@@ -81,7 +81,7 @@ export default function ContactForm() {
                     phone: data.phone || "Not provided",
                     subject: data.subject,
                     message: data.message,
-                    to_email: "info@panzookie.com",
+                    to_email: "therealnetworkengineer@gmail.com",
                 },
                 process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
             );
@@ -208,7 +208,7 @@ export default function ContactForm() {
                             style={{ background: "rgba(239,68,68,0.1)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.25)" }}
                         >
                             Something went wrong. Please try again or email us at{" "}
-                            <a href="mailto:info@panzookie.com" style={{ color: "#ef4444", fontWeight: 700 }}>info@panzookie.com</a>
+                            <a href="mailto:therealnetworkengineer@gmail.com" style={{ color: "#ef4444", fontWeight: 700 }}>therealnetworkengineer@gmail.com</a>
                         </div>
                     )}
 
@@ -246,7 +246,7 @@ export default function ContactForm() {
 
                     <p className="text-center text-[11px]" style={{ color: textSecondary }}>
                         Messages go to{" "}
-                        <span style={{ color: "var(--pz-amber)", fontWeight: 600 }}>info@panzookie.com</span>
+                        <span style={{ color: "var(--pz-amber)", fontWeight: 600 }}>therealnetworkengineer@gmail.com</span>
                         {" "}— we reply within the hour.
                     </p>
                 </form>

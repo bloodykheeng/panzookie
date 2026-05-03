@@ -218,8 +218,8 @@ export default function Contact() {
                         </div>
                         <div>
                             <p className="text-[11px] font-semibold tracking-wide uppercase" style={{ color: textSecondary, fontFamily: "'Syne', sans-serif" }}>Email</p>
-                            <a href="mailto:hello@panzookienetworks.com" className="text-[14px] font-semibold transition-colors hover:opacity-80" style={{ color: "var(--pz-amber)" }}>
-                                hello@panzookienetworks.com
+                            <a href="mailto:therealnetworkengineer@gmail.com" className="text-[14px] font-semibold transition-colors hover:opacity-80" style={{ color: "var(--pz-amber)" }}>
+                                therealnetworkengineer@gmail.com
                             </a>
                         </div>
                     </div>

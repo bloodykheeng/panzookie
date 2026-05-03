@@ -49,7 +49,7 @@ export default function EnterpriseConsultation() {
             {/* Calendly inline widget */}
             <div className="w-full h-[1000px]"> {/* increased from 700 */}
                 <InlineWidget
-                    url="https://calendly.com/therealnetworkengineer/30min"
+                    url={process.env.NEXT_PUBLIC_CALENDLY_ENTERPRISE_URL!}
                     styles={{ height: "100%", width: "100%" }}
                     pageSettings={{
                         backgroundColor: isDark ? "0d1117" : "ffffff",

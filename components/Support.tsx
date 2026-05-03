@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "@/providers/ThemeProvider";
-import { PopupModal } from "react-calendly";
 
 const PLANS = [
     {
@@ -64,7 +63,6 @@ const fadeUp = {
 export default function Support() {
     const { theme } = useTheme();
     const isDark = theme === "dark";
-    const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
     const [loadingPriceId, setLoadingPriceId] = useState<string | null>(null);
 
     async function handleSubscribe(priceId: string, planName: string) {
@@ -257,14 +255,6 @@ export default function Support() {
                 </div>
             </div>
 
-            {isCalendlyOpen && (
-                <PopupModal
-                    url="https://calendly.com/panzookienetworks/maintenance-subscription"
-                    open={true}
-                    onModalClose={() => setIsCalendlyOpen(false)}
-                    rootElement={document.body}
-                />
-            )}
         </section>
     );
 }

@@ -134,7 +134,7 @@ export default function HomeNetworkForm() {
                     maintenance: data.maintenance,
                     visit_before: data.visitBefore ? "Yes" : "No",
                     visit_description: data.visitDescription || "—",
-                    to_email: "home@panzookie.com",
+                    to_email: "therealnetworkengineer@gmail.com",
                 },
                 process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
             );
@@ -491,7 +491,7 @@ export default function HomeNetworkForm() {
                             style={{ background: "rgba(239,68,68,0.1)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.25)" }}>
                             <p>Something went wrong. Please try again or email us directly.</p>
                             <a
-                                href={`mailto:home@panzookie.com?subject=Home Network Request&body=${encodeURIComponent(
+                                href={`mailto:therealnetworkengineer@gmail.com?subject=Home Network Request&body=${encodeURIComponent(
                                     `Name: ${watch("name") || ""}\nEmail: ${watch("email") || ""}\nPhone: ${watch("phone") || ""}\nHome Size: ${watch("homeSize") || ""}\nFloors: ${watch("floors") || ""}\nIssues: ${watchedIssues.join(", ")}\nIssue Description: ${watch("issueDescription") || "—"}\nEthernet: ${watchedEthernet || ""}\nMaintenance: ${watchedMaintenance || ""}\nVisit Before: ${watchedVisitBefore ? "Yes" : "No"}\nVisit Description: ${watch("visitDescription") || "—"}`
                                 )}`}
                                 className="mt-2 px-4 py-2 rounded-xl font-semibold text-black bg-amber-400 hover:bg-amber-500 transition-colors"
@@ -535,7 +535,7 @@ export default function HomeNetworkForm() {
 
                     <p className="text-center text-[11px]" style={{ color: textSecondary }}>
                         Your request is sent directly to{" "}
-                        <span style={{ color: "var(--pz-amber)", fontWeight: 600 }}>home@panzookie.com</span>
+                        <span style={{ color: "var(--pz-amber)", fontWeight: 600 }}>therealnetworkengineer@gmail.com</span>
                         {" "}— we reply within the hour.
                     </p>
                 </form>

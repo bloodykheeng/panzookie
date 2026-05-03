@@ -53,7 +53,6 @@ export default function MobileCTA() {
                     >
                         <button
                             type="button"
-                            // onClick={() => setCalendlyUrl("https://calendly.com/panzookienetworks/home-network-service")}
                             onClick={() => goToContactTab("home")}
                             className="flex-1 flex items-center justify-center gap-1.5 py-3.5 rounded-xl text-[11px] font-bold tracking-wider uppercase transition-all active:scale-95"
                             style={{
@@ -70,8 +69,7 @@ export default function MobileCTA() {
                         </button>
                         <button
                             type="button"
-                            // onClick={() => setCalendlyUrl("https://calendly.com/panzookienetworks/enterprise-consultation")}
-                            // onClick={() => setCalendlyUrl("https://calendly.com/therealnetworkengineer/30min")}
+                            // onClick={() => setCalendlyUrl(process.env.NEXT_PUBLIC_CALENDLY_ENTERPRISE_URL!)}
                             onClick={() => goToContactTab("enterprise")}
                             className="flex-1 flex items-center justify-center gap-1.5 py-3.5 rounded-xl text-[11px] font-bold tracking-wider uppercase border-2 transition-all active:scale-95"
                             style={{

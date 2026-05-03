@@ -177,8 +177,7 @@ export default function Hero() {
 
                         <button
                             type="button"
-                            // onClick={() => setCalendlyUrl("https://calendly.com/panzookienetworks/enterprise-consultation")}
-                            // onClick={() => setCalendlyUrl("https://calendly.com/therealnetworkengineer/30min")}
+                            // onClick={() => setCalendlyUrl(process.env.NEXT_PUBLIC_CALENDLY_ENTERPRISE_URL!)}
                             onClick={() => goToContactTab("enterprise")}
                             className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-[13px] font-bold tracking-wider uppercase border-2 transition-all duration-200 hover:scale-105 active:scale-95"
                             style={{

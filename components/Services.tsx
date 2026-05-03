@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useTheme } from "@/providers/ThemeProvider";
 import { useState } from "react";
-import { PopupModal } from "react-calendly";
 
 const SERVICES = [
     {
@@ -59,7 +58,6 @@ const fadeUp = {
 export default function Services() {
     const { theme } = useTheme();
     const isDark = theme === "dark";
-    const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
     const [loadingPriceId, setLoadingPriceId] = useState<string | null>(null);
 
     function goToContactTab(tab: "contact" | "home" | "enterprise") {
@@ -266,22 +264,6 @@ export default function Services() {
                 </motion.div>
             </div>
 
-            {isCalendlyOpen && (
-                <PopupModal
-                    // url="https://calendly.com/panzookienetworks/home-network-service"
-                    url="https://calendly.com/therealnetworkengineer/30min"
-                    open={isCalendlyOpen}
-                    onModalClose={() => setIsCalendlyOpen(false)}
-                    rootElement={document.body}
-                    pageSettings={{
-                        backgroundColor: isDark ? "0d1117" : "ffffff",
-                        hideEventTypeDetails: false,
-                        hideLandingPageDetails: false,
-                        primaryColor: "ffb400",
-                        textColor: isDark ? "f8fafc" : "0f172a",
-                    }}
-                />
-            )}
         </section>
     );
 }
